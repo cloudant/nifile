@@ -1,0 +1,8 @@
+*.o
+
+.eunit/
+.rebar/
+ebin/
+test/
+
+erln8.config

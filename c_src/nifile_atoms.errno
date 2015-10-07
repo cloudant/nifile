@@ -1,0 +1,38 @@
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+ATOM_MAP(EACCES,        EACCES,         eacces)
+ATOM_MAP(EAGAIN,        EAGAIN,         eagain)
+ATOM_MAP(EBADF,         EBADF,          ebadf)
+ATOM_MAP(EBUSY,         EBUSY,          ebusy)
+ATOM_MAP(EDQUOT,        EDQUOT,         edquot)
+ATOM_MAP(EEXIST,        EEXIST,         eexist)
+ATOM_MAP(EFAULT,        EFAULT,         efault)
+ATOM_MAP(EINTR,         EINTR,          eintr)
+ATOM_MAP(EINVAL,        EINVAL,         einval)
+ATOM_MAP(EIO,           EIO,            eio)
+ATOM_MAP(EISDIR,        EISDIR,         eisdir)
+ATOM_MAP(ELOOP,         ELOOP,          eloop)
+ATOM_MAP(EMFILE,        EMFILE,         emfile)
+ATOM_MAP(ENAMETOOLONG,  ENAMETOOLONG,   enametoolong)
+ATOM_MAP(ENFILE,        ENFILE,         enfile)
+ATOM_MAP(ENOENT,        ENOENT,         enoent)
+ATOM_MAP(ENOMEM,        ENOMEM,         enomem)
+ATOM_MAP(ENOSPC,        ENOSPC,         enospc)
+ATOM_MAP(ENOTDIR,       ENOTDIR,        enotdir)
+ATOM_MAP(ENOTEMPTY,     ENOTEMPTY,      enotempty)
+ATOM_MAP(ENXIO,         ENXIO,          enxio)
+ATOM_MAP(EOPNOTSUPP,    EOPNOTSUPP,     eopnotsupp)
+ATOM_MAP(EOVERFLOW,     EOVERFLOW,      eoverflow)
+ATOM_MAP(EROFS,         EROFS,          erofs)
+ATOM_MAP(ETXTBSY,       ETXTBSY,        etxtbsy)
+ATOM_MAP(EXDEV,         EXDEV,          exdev)

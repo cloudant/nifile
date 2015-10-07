@@ -1,0 +1,24 @@
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+ATOM_MAP(O_RDONLY,      READ,           read)
+ATOM_MAP(O_WRONLY,      WRITE,          write)
+ATOM_MAP(O_RDWR,        READ_WRITE,     read_write)
+ATOM_MAP(O_APPEND,      APPEND,         append)
+ATOM_MAP(O_CREAT,       CREATE,         create)
+ATOM_MAP(O_TRUNC,       TRUNCATE,       truncate)
+ATOM_MAP(O_EXCL,        EXCLUSIVE,      exclusive)
+ATOM_MAP(O_SHLOCK,      SHARED_LOCK,    shared_lock)
+ATOM_MAP(O_EXLOCK,      EXCLUSIVE_LOCK, exclusive_lock)
+ATOM_MAP(O_NOFOLLOW,    NOFOLLOW,       nofollow)
+ATOM_MAP(O_SYMLINK,     SYMLINK,        symlink)
+ATOM_MAP(O_CLOEXEC,     CLOSE_ON_EXEC,  close_on_exec)
