@@ -39,8 +39,6 @@ nifile() ->
     }.
 
 
-
-
 main(_) ->
     set_code_path(),
     Impls = [nifile(), erlang()],
@@ -90,7 +88,6 @@ run_loop(_Parent, TestFuns, Messages, Bytes) ->
         (WriteTime + ReadTime) / 1000000
     ],
     io:format("~8b :: Write: ~8.2fs  Read: ~8.2fs Total: ~8.2fs~n", Args).
-    
 
 
 write_loop(_Write, _Fd, Bytes) when Bytes =< 0 ->
@@ -106,4 +103,3 @@ read_loop(Read, Fd, Bytes, Pos) ->
     {ok, _Bin} = Read(Fd, Pos, chunk_size()),
     read_loop(Read, Fd, Bytes, Pos+chunk_size()).
 
-  

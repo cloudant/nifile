@@ -185,7 +185,7 @@ nifile_close(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 
     if(ret == 0) {
         res->closed = 1;
-        return ATOM_OK;        
+        return ATOM_OK;
     }
 
     return nifile_errno_error(env, errno);
