@@ -4,5 +4,6 @@
 .rebar/
 ebin/
 priv/
+test/benchmarks/*.tmp
 
 erln8.config
