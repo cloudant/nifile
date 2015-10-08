@@ -3,6 +3,6 @@
 .eunit/
 .rebar/
 ebin/
-test/
+priv/
 
 erln8.config
