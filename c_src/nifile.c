@@ -626,6 +626,12 @@ nifile_readdir(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 static int
 nifile_load(ErlNifEnv* env, void** priv, ERL_NIF_TERM load_info)
 {
+    ErlNifSysInfo sys_info;
+    enif_system_info(&sys_info, sizeof(ErlNifSysInfo));
+    if(!sys_info.smp_support || !sys_info.dirty_scheduler_support) {
+        return 1;
+    }
+
     nifile_init_atoms(env);
 
     int flags = ERL_NIF_RT_CREATE | ERL_NIF_RT_TAKEOVER;
@@ -649,25 +655,25 @@ nifile_load(ErlNifEnv* env, void** priv, ERL_NIF_TERM load_info)
 
 
 static ErlNifFunc nif_funcs[] = {
-    {"open", 3, nifile_open},
-    {"close", 1, nifile_close},
-    {"sync", 1, nifile_sync},
-    {"seek", 3, nifile_seek},
-    {"read", 2, nifile_read},
-    {"write", 2, nifile_write},
-    {"pread", 3, nifile_pread},
-    {"pwrite", 3, nifile_pwrite},
-    {"truncate", 2, nifile_truncate},
+    {"open",        3, nifile_open,         ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"close",       1, nifile_close,        ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"sync",        1, nifile_sync,         ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"seek",        3, nifile_seek,         ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"read",        2, nifile_read,         ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"write",       2, nifile_write,        ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"pread",       3, nifile_pread,        ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"pwrite",      3, nifile_pwrite,       ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"truncate",    2,  nifile_truncate,    ERL_NIF_DIRTY_JOB_IO_BOUND},
 
-    {"rename", 2, nifile_rename},
-    {"mkdir", 2, nifile_mkdir},
-    {"rmdir", 1, nifile_rmdir},
-    {"unlink", 1, nifile_unlink},
-    {"remove", 1, nifile_remove},
+    {"rename",      2, nifile_rename,       ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"mkdir",       2, nifile_mkdir,        ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"rmdir",       1, nifile_rmdir,        ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"unlink",      1, nifile_unlink,       ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"remove",      1, nifile_remove,       ERL_NIF_DIRTY_JOB_IO_BOUND},
 
-    {"opendir", 1, nifile_opendir},
-    {"closedir", 1, nifile_closedir},
-    {"readdir", 1, nifile_readdir}
+    {"opendir",     1, nifile_opendir,      ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"closedir",    1, nifile_closedir,     ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"readdir",     1, nifile_readdir,      ERL_NIF_DIRTY_JOB_IO_BOUND}
 };
 
 
