@@ -22,6 +22,9 @@
 
 #include "nifile.h"
 
+#define NIFILE_SCHEDULER_TYPE 0
+//#define NIFILE_SCHEDULER_TYPE ERL_NIF_DIRTY_JOB_IO_BOUND
+
 
 ErlNifResourceType* FD_RES;
 ErlNifResourceType* DIR_RES;
@@ -655,25 +658,25 @@ nifile_load(ErlNifEnv* env, void** priv, ERL_NIF_TERM load_info)
 
 
 static ErlNifFunc nif_funcs[] = {
-    {"open",        3, nifile_open,         ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"close",       1, nifile_close,        ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"sync",        1, nifile_sync,         ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"seek",        3, nifile_seek,         ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"read",        2, nifile_read,         ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"write",       2, nifile_write,        ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"pread",       3, nifile_pread,        ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"pwrite",      3, nifile_pwrite,       ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"truncate",    2,  nifile_truncate,    ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"open",        3, nifile_open,         NIFILE_SCHEDULER_TYPE},
+    {"close",       1, nifile_close,        NIFILE_SCHEDULER_TYPE},
+    {"sync",        1, nifile_sync,         NIFILE_SCHEDULER_TYPE},
+    {"seek",        3, nifile_seek,         NIFILE_SCHEDULER_TYPE},
+    {"read",        2, nifile_read,         NIFILE_SCHEDULER_TYPE},
+    {"write",       2, nifile_write,        NIFILE_SCHEDULER_TYPE},
+    {"pread",       3, nifile_pread,        NIFILE_SCHEDULER_TYPE},
+    {"pwrite",      3, nifile_pwrite,       NIFILE_SCHEDULER_TYPE},
+    {"truncate",    2,  nifile_truncate,    NIFILE_SCHEDULER_TYPE},
 
-    {"rename",      2, nifile_rename,       ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"mkdir",       2, nifile_mkdir,        ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"rmdir",       1, nifile_rmdir,        ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"unlink",      1, nifile_unlink,       ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"remove",      1, nifile_remove,       ERL_NIF_DIRTY_JOB_IO_BOUND},
+    {"rename",      2, nifile_rename,       NIFILE_SCHEDULER_TYPE},
+    {"mkdir",       2, nifile_mkdir,        NIFILE_SCHEDULER_TYPE},
+    {"rmdir",       1, nifile_rmdir,        NIFILE_SCHEDULER_TYPE},
+    {"unlink",      1, nifile_unlink,       NIFILE_SCHEDULER_TYPE},
+    {"remove",      1, nifile_remove,       NIFILE_SCHEDULER_TYPE},
 
-    {"opendir",     1, nifile_opendir,      ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"closedir",    1, nifile_closedir,     ERL_NIF_DIRTY_JOB_IO_BOUND},
-    {"readdir",     1, nifile_readdir,      ERL_NIF_DIRTY_JOB_IO_BOUND}
+    {"opendir",     1, nifile_opendir,      NIFILE_SCHEDULER_TYPE},
+    {"closedir",    1, nifile_closedir,     NIFILE_SCHEDULER_TYPE},
+    {"readdir",     1, nifile_readdir,      NIFILE_SCHEDULER_TYPE}
 };
 
 
