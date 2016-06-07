@@ -18,6 +18,7 @@
     open/2,
     open/3,
     close/1,
+    fd/1,
     sync/1,
     seek/3,
     read/2,
@@ -60,6 +61,10 @@ open(_Path, _OpenFlags, _Modes) ->
 
 
 close(_Fd) ->
+    ?NOT_LOADED.
+
+
+fd(_Fd) ->
     ?NOT_LOADED.
 
 

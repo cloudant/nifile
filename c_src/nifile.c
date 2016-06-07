@@ -196,6 +196,19 @@ nifile_close(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 
 
 static ERL_NIF_TERM
+nifile_fd(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+{
+    nifile_fd_t* res = nifile_get_fd_res(env, argv[0]);
+
+    if(res == NULL) {
+        return enif_make_badarg(env);
+    }
+
+    return enif_make_uint64(env, res->fd);
+}
+
+
+static ERL_NIF_TERM
 nifile_sync(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 {
     nifile_fd_t* res = nifile_get_fd_res(env, argv[0]);
@@ -660,6 +673,7 @@ nifile_load(ErlNifEnv* env, void** priv, ERL_NIF_TERM load_info)
 static ErlNifFunc nif_funcs[] = {
     {"open",        3, nifile_open,         NIFILE_SCHEDULER_TYPE},
     {"close",       1, nifile_close,        NIFILE_SCHEDULER_TYPE},
+    {"fd",          1, nifile_fd,           NIFILE_SCHEDULER_TYPE},
     {"sync",        1, nifile_sync,         NIFILE_SCHEDULER_TYPE},
     {"seek",        3, nifile_seek,         NIFILE_SCHEDULER_TYPE},
     {"read",        2, nifile_read,         NIFILE_SCHEDULER_TYPE},
