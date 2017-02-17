@@ -19,11 +19,6 @@
 #include "erl_nif.h"
 
 
-#ifndef ERL_NIF_DIRTY_SCHEDULER_SUPPORT
-#error This NIF requires dirty scheduler support in the Erlang VM
-#endif
-
-
 #define ATOM_MAP(symname, defname, atomname) extern ERL_NIF_TERM ATOM_##defname;
 #include "nifile_atoms.all"
 #undef ATOM_MAP
